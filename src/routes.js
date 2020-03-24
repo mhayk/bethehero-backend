@@ -1,16 +1,26 @@
 const express = require('express');
+const crypto = require('crypto');
+const connection = require('./database/connection');
 
 const routes = express.Router();
 
-routes.post('/users', (request, response) => {
-  const { body } = request;
+routes.post('/ongs', async (request, response) => {
+  const {
+    name, email, whatsapp, city, uf,
+  } = request.body;
 
-  console.log(body);
+  const id = crypto.randomBytes(4).toString('HEX');
 
-  return response.json({
-    evento: 'Be the Hero',
-    name: 'Mhayk Whandson',
+  await connection('ongs').insert({
+    id,
+    name,
+    email,
+    whatsapp,
+    city,
+    uf,
   });
+
+  return response.json({ id });
 });
 
 module.exports = routes;
