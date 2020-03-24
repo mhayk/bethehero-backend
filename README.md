@@ -10,3 +10,13 @@ $ yarn knex migrate:make create_incidents
 ```
 $ yarn knex migrate:latest
 ```
+
+### Command to rollback the last migration
+```
+$ yarn knex migrate:rollback
+```
+
+### Command to list all migrations files with status
+```
+$ yarn knex migrate:status|migrate:list
+```
