@@ -20,3 +20,9 @@ $ yarn knex migrate:rollback
 ```
 $ yarn knex migrate:status|migrate:list
 ```
+
+## Jest
+```
+$ yarn add jest
+$ yarn jest --init
+```
